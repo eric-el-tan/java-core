@@ -17,7 +17,7 @@ public class CounterTest {
 
         final Counter counter = new Counter();
         for (int i = 0; i < TOTAL; i++) {
-            counter.increment();
+            counter.increment_synchronized_method();
         }
 
         System.out.println(counter.count);
@@ -25,21 +25,21 @@ public class CounterTest {
     }
 
     @Test
-    public void TwoThread(){
+    public void TwoThread_synchonrized_method(){
         long startTime = System.currentTimeMillis();
 
         final Counter counter = new Counter();
         Thread t1 = new Thread(new Runnable() {
             public void run() {
                 for (int i = 0; i < TOTAL/2; i++) {
-                    counter.increment();
+                    counter.increment_synchronized_method();
                 }
             }
         });
         Thread t2 = new Thread(new Runnable() {
             public void run() {
                 for (int i = 0; i < TOTAL/2; i++) {
-                    counter.increment();
+                    counter.increment_synchronized_method();
                 }
             }
         });

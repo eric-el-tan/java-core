@@ -6,7 +6,7 @@ public class Counter{
 
     int count;
 
-    public synchronized void increment(){
+    public synchronized void increment_synchronized_method(){
         count++; // 3 operation;
         // 1. read count 100
         // 2. addition +1
