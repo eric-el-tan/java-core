@@ -137,3 +137,30 @@ compareAndSet(int expectedValue, int newValue); // the value equals to expectedV
 |AtomicReference   |Caches (building new cache in background and replacing atomically)   |
 |AtomicReference   |Used by some internal classes   |
 |AtomicReference   |non-blocking algorithms   |
+
+## Java 9 Concurrency
+ 
+ 1. prefer atomic variable than synchronization
+ 2. holdiing locks for as short time as possible
+ 3. delegating the management of threads to executors
+ 4. taking precautions using lazy initialization
+ 5. using the fork-join framework instead of executors
+ 6. avoiding the use of blocking operations inside a lock
+ 7. using streams to process big data sets
+ 
+### [Prefer atomic variable than synchronization](https://www.youtube.com/watch?v=-XipPj3tUu0))
+
+- synchronization protects access to shared piece of data
+- options to for synchronization:
+    - synchronized keyword in methods or blocks
+    - using a Lock class
+    
+- since Java 5, Java include the atomic variables when a thread is doing an operation with an atomic variable. The implementation of the class includes an mechanism to check the operations is done in one step. **Basically, the operation gets the value of the variable, changes the value in the local variable, and then tries to change the old value of shared cache with the new one.**If the old value is still the same, it does the change. If not, the method begins the operation again. Java provides these 4 types of atomic variables: AtomicBoolean, AtomicInteger, AtomicLong and AtomicReference.
+- In some cases, Java atomic variables offer a better performance than solutions based on synchronization mechanisms. Some classes of the *java.util.concurrent* package use atomic variables instead of synchronization.
+- examine performance of Lock and Atomic
+```$java 
+TaskAtomicTest
+Lock results: 1664
+Atomic results: 1115
+```
+- If you do not have an atomic type that fits your needs, maybe you can try to implement your own atomic type. 
