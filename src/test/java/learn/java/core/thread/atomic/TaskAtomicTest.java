@@ -7,7 +7,7 @@ import java.util.Date;
 public class TaskAtomicTest {
 
     @Test
-    public void 1(){
+    public void examinePerformanceOfLock(){
         TaskLock taskLock = new TaskLock();
 
         int numberOfThreads = 50;

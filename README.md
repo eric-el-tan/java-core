@@ -163,4 +163,19 @@ TaskAtomicTest
 Lock results: 1664
 Atomic results: 1115
 ```
-- If you do not have an atomic type that fits your needs, maybe you can try to implement your own atomic type. 
+- If you do not have an atomic type that fits your needs, maybe you can try to implement your own atomic type.
+
+### Testing Concurrent Applications
+- Two or more threads share data structures
+- Adds more difficulty to the testing phase
+- The execution of thread is **non-deterministic**
+- **The order of the execution of threads can't be guaranteed**
+- Difficult to reproduce errors
+
+### Something to follow up...
+- CompletableFuture<T>
+- ForkJoinPool.commonPool().awaitQuiescence(1, TimeUnit.SECONDS);
+- Stream with CheckedException
+- Try with resource
+- Java 8 Concurrency
+- Java 9 Concurrency
