@@ -2,6 +2,8 @@ package learn.java.core.thread.safety;
 
 //https://www.youtube.com/watch?v=px4W-HXRWKk
 
+import java.util.StringJoiner;
+
 public class Counter{
 
     int count;
@@ -23,4 +25,10 @@ public class Counter{
         }
     }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Counter.class.getSimpleName() + "[", "]")
+                .add("count=" + count)
+                .toString();
+    }
 }
